@@ -8,18 +8,29 @@ export default StyleSheet.create({
   boxVisor:{
     flex:2.5,
     backgroundColor: '#fff',
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     marginTop: 10,
+    paddingTop: 250, 
     borderRadius: 10,
     justifyContent:'flex-end',
     alignItems: 'flex-end',
   },
   boxInput:{
+    justifyContent:'flex-end',
+    alignItems: 'flex-end',
     marginRight: 10
   },
 
   textInput:{
+    color: '#000',
     fontSize: 70,
+  },
+  textInputAfterSoma:{
+    color: '#444',
+    fontSize: 30,
+  },
+  boxTextResult:{
+    alignItems: 'flex-end',
   },
   textVisor:{
     fontSize:20,
@@ -32,28 +43,31 @@ export default StyleSheet.create({
     margin: 10,
     backgroundColor: '#fff',
     borderRadius: 10,
+    paddingBottom: 10,
 
   },
   boxNum:{
     flex: 1,
     flexDirection: 'row',
-    marginTop: 0,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 30,
   },
   boxButton:{
-    borderRadius: 100,
-    height: '70%',
-    width: '20%',
-    justifyContent: 'center',
+    height: 50,
+    width: 50,
+    backgroundColor: '#fff',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText:{
+
     fontSize: 40,
   },
   specialButton:{
     borderRadius: 40,
-    height: 50,
-    width: 49,
+    height: 55,
+    width: 55,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#ff8000',
@@ -64,6 +78,6 @@ export default StyleSheet.create({
   },
   functionsButton:{
     color: '#ff8000',
-    fontSize: 40,
+    fontSize: 30,
   }
 })
