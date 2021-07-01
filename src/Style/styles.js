@@ -3,18 +3,13 @@ import {StyleSheet, Dimensions} from 'react-native'
 export default StyleSheet.create({
   display:{
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
     marginRight: 30,
     marginBottom: 10,
   },
   displayValue:{
     fontSize: 70,
     color: '#000',
-  },
-  displayResult:{
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+
   },
   displayValueResult:{
     fontSize: 30,

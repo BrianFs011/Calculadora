@@ -60,7 +60,7 @@ export default function app(){
 
     else{
 
-      if(stateUse.value[0] == '0'){
+      if(stateUse.value[0] === 0){
         if(n != '.'){
           stateUse.displayValue = ''
           stateUse.value[0] = ''
@@ -71,7 +71,7 @@ export default function app(){
         stateUse.value[0] += n
       }
       else{
-        if(stateUse.value[2] == 0){
+        if(stateUse.value[2] === '0'){
           stateUse.value[2] = ''
         }
         stateUse.value[2] += n
@@ -102,7 +102,7 @@ export default function app(){
       }
     }  
   } 
-
+ 
   console.log('\n');
   console.log('display: '+ stateUse.displayValue);
   console.log('current: '+ stateUse.current);
@@ -126,42 +126,54 @@ export default function app(){
 
   function deletar(){
     setDisplay('');
+
     if(stateUse.result == null){
-      stateUse.displayValue = stateUse.displayValue.slice(0, -1);
-      if(stateUse.current == 2){
-        stateUse.dot = initialState.dot
-        if(stateUse.value[2] != 0){
-          stateUse.value[2] = stateUse.value[2].slice(0, -1);
+
+      if(stateUse.value[2] == 0){
+        stateUse.value[2] = initialState.value[2];
+        stateUse.current = initialState.current
+      }
+    
+      if(stateUse.current == 0){
+        
+        if(stateUse.value[1] !== 0){
+          stateUse.displayValue = stateUse.displayValue.slice(0, -1);
+          stateUse.value[1] = initialState.value[1]
         }
         else{
-          stateUse.current = initialState.current;
-        }
-      }
-      if(stateUse.current == 0){
-        stateUse.dot = initialState.dot
-        if(stateUse.value[0] != 0){
-          if(stateUse.value[1] != initialState.value[1]){
-            stateUse.value[1] = initialState.value[1];
-          }
-          else{
+          
+          if(stateUse.displayValue !== '0' || stateUse.value[0] !== 0){
+            stateUse.displayValue = stateUse.displayValue.slice(0, -1);
             stateUse.value[0] = stateUse.value[0].slice(0, -1)
           }
+          
+          if(stateUse.displayValue === '0' || stateUse.value[0] == 0){
+            stateUse.displayValue = initialState.displayValue;
+            stateUse.value[0] = initialState.value[0];
+            
+          }
+        }
+      }
+      else{
+        if(stateUse.value[2] !== 0){
+          stateUse.displayValue = stateUse.displayValue.slice(0, -1);
+          stateUse.value[2] = stateUse.value[2].slice(0, -1)
         }
       }
     }
-    else{
-      ac()
-    }
   }
-  
-  function result(){
-    setDisplay('');
+
+function result(){
+  setDisplay('');
+  if(stateUse.value[2] != 0){
+
     let rt = eval(`${stateUse.value[0]}${stateUse.value[1]}${stateUse.value[2]}`);
     stateUse.result = rt;
-    stateUse.value[0] = rt;
+    stateUse.value[0] = String (rt);
     stateUse.value[1] = initialState.value[1];
     stateUse.value[2] = initialState.value[2];
   }
+}
 
   return(
     <View style={{flex:1, backgroundColor: '#fff'}}>
@@ -185,7 +197,7 @@ export default function app(){
         <NumPad label='8' onClick={() => addDigit('8')}/>
         <NumPad label='9' onClick={() => addDigit('9')}/>
         <NumPad label='+' operation onClick={() => addOperation('+')}/>
-        <NumPad especial='maximize-2' icon operation onClick={{}}/>
+        <NumPad label='' icon operation />
         <NumPad label='0' onClick={() => addDigit('0')}/>
         <NumPad label='.' onClick={() => addDigit('.')}/>
         <NumPad label='=' especialOperation onClick={()=>{result()}}/>
