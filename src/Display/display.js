@@ -16,13 +16,13 @@ export default (props)=>{
       :
       <>
         <View style={{flex:1}}>
-          <ScrollView ref={ref => {this.scrollView = ref}} onContentSizeChange={()=>{this.scrollView.scrollToEnd({animated: true})}} horizontal={true} contentContainerStyle={{flexGrow: 1, justifyContent: 'flex-end', alignItems:"flex-end"}} showsHorizontalScrollIndicator={false}>
+          <ScrollView ref={ref => {this.scrollView = ref}} onContentSizeChange={()=>{this.scrollView.scrollToEnd({animated: true})}} horizontal={true} contentContainerStyle={{flexGrow: 1,justifyContent:'flex-end',alignItems:"flex-end"}} showsHorizontalScrollIndicator={false}>
             <Text  numberOfLines={1} style={styles.displayValueResult}>{props.value}</Text>
           </ScrollView>
         </View>
 
-        <View >
-          <ScrollView  horizontal={true} contentContainerStyle={{flexGrow: 1,justifyContent: 'flex-end', paddingTop: 20, alignItems:"flex-end"}} showsHorizontalScrollIndicator={false}>
+        <View>
+          <ScrollView  horizontal={true} contentContainerStyle={{flexGrow: 1,justifyContent:'flex-end',alignItems:"flex-end"}} showsHorizontalScrollIndicator={false}>
             <Text style={styles.displayValue}>{props.result}</Text>
           </ScrollView>
         </View>

@@ -9,7 +9,6 @@ export default StyleSheet.create({
   displayValue:{
     fontSize: 70,
     color: '#000',
-
   },
   displayValueResult:{
     fontSize: 30,

@@ -71,7 +71,7 @@ export default function app(){
         stateUse.value[0] += n
       }
       else{
-        if(stateUse.value[2] === '0'){
+        if(stateUse.value[2] == 0){
           stateUse.value[2] = ''
         }
         stateUse.value[2] += n
